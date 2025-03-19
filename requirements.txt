@@ -1,8 +1,12 @@
+# data viz and analyse tools
 numpy
 pandas
 seaborn
 matplotlib
 plotly
+
+# ML tools
+dill
 scikit-learn
 catboost
 xgboost
