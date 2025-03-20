@@ -30,7 +30,7 @@ class DataIngestion:
 
             os.makedirs(os.path.dirname(self.data_ingestion_config.raw_data_path), exist_ok=True)
 
-            data.to_csv(self.data_ingestion_config.train_data_path, header=True, index=False)
+            data.to_csv(self.data_ingestion_config.raw_data_path, header=True, index=False)
 
             logging.info("train_test_split separation initiated.")
             train_data, test_data = train_test_split(data, train_size=0.8, random_state=42)

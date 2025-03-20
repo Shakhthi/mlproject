@@ -30,7 +30,7 @@ def split_features():
             cat_cols.append(col)
     return (num_cols, cat_cols)
 
-if __name__ == "__main__":
+""" if __name__ == "__main__":
     nums, cats = split_features()
     print(f"num_features:{nums}")
-    print(f"cat_features:{cats}")
+    print(f"cat_features:{cats}") """
