@@ -5,6 +5,8 @@ seaborn
 matplotlib
 plotly
 
+flask
+
 # ML tools
 dill
 scikit-learn

@@ -17,6 +17,26 @@ def save_object(file_path, obj):
             
     except Exception as e:
         raise CustomException(e, sys)
+    
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            obj = dill.load(file_obj)
+            
+        return obj
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def split_features():
+    df = pd.read_csv("notebook/data/stud.csv")
+
+    num_cols, cat_cols = [], []
+    for col in df.columns:
+        if df[col].dtype != "O":
+            num_cols.append(col)
+        else:
+            cat_cols.append(col)
+    return (num_cols, cat_cols)
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score
@@ -44,16 +64,6 @@ def evaluate_model(X_train, y_train, X_test, y_test, models:dict, params:dict):
     except Exception as e:
         raise CustomException(e, sys)
 
-def split_features():
-    df = pd.read_csv("notebook/data/stud.csv")
-
-    num_cols, cat_cols = [], []
-    for col in df.columns:
-        if df[col].dtype != "O":
-            num_cols.append(col)
-        else:
-            cat_cols.append(col)
-    return (num_cols, cat_cols)
 
 """ if __name__ == "__main__":
     nums, cats = split_features()
